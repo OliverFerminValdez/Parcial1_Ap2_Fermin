@@ -1,0 +1,91 @@
+﻿@page "/ConsultaArticulos"
+
+@using BLL
+@using Models
+    <h4>Consulta de Articulos</h4>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-xs-12 col-md-3">
+                    <div class="form-group two-fields">
+                        <div class="input-group">
+                            <select @bind="Filtro" class="form-control" placeholder="filtro">
+                                <option value=0>Filtro</option>
+                                <option value=1>Id</option>
+                                <option value=2>Descripcion</option>
+                            </select>
+                            <input type="text" @bind="Criterio" class="form-control" placeholder="Criterio" />
+                            <button type="button" class="btn btn-dark input-group-text" @onclick="Consultar">Consultar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Existencia</th>
+                            <th scope="col">Costo</th>
+                            <th scope="col">Valor inventario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in lista)
+                        {
+                            <tr>
+                                <th scope="row">@item.ArticuloId</th>
+                                <td>@item.Descripcion</td>
+                                <td>@item.Existencia</td>
+                                <td>@item.Costo</td>
+                                <td>@item.ValorInventario</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </form>
+
+        </div>
+        <div class="card-footer">
+
+        </div>
+    </div>
+
+
+@code {
+
+    public string Criterio = string.Empty;
+    public int Filtro = 0;
+    List<Articulos> lista = new List<Articulos>();
+
+    public void Consultar()
+    {
+
+
+        if(Criterio != string.Empty)
+        {
+            switch (Filtro)
+            {
+                case 0:
+                    lista = ArticulosBLL.GetArticulos(a => true);
+                    break;
+                case 1:
+                    int id = Convert.ToInt32(Criterio);
+                    lista = ArticulosBLL.GetArticulos(a => a.ArticuloId == id);
+                    break;
+                case 2:
+                    lista = ArticulosBLL.GetArticulos(a => a.Descripcion.Contains(Criterio));
+                    break;
+            }
+        }
+        else
+        {
+            lista = ArticulosBLL.GetArticulos(a => true);
+        }
+    }
+}
