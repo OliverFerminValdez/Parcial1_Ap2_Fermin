@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Parcial1_Ap2_Fermin.Data;
-//Oliver Jose Fermin Valdez
+//Oliver Jose Fermin Valdez //20170468
 namespace Parcial1_Ap2_Fermin
 {
     public class Startup
