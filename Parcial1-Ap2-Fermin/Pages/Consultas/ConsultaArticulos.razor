@@ -52,7 +52,10 @@
 
         </div>
         <div class="card-footer" style="background-color:skyblue">
-
+            <div class="form-group">
+                <label><strong>Total Inventario</strong></label>
+                <input type="text" class="form-control" @bind="total" />
+            </div>
         </div>
     </div>
 
@@ -61,6 +64,7 @@
 
     public string Criterio = string.Empty;
     public int Filtro = 0;
+    public double total = 0;
     List<Articulos> lista = new List<Articulos>();
 
     public void Consultar()
@@ -81,11 +85,26 @@
                 case 2:
                     lista = ArticulosBLL.GetArticulos(a => a.Descripcion.Contains(Criterio));
                     break;
+                case 3:
+                    double costo = Convert.ToDouble(Criterio);
+                    lista = ArticulosBLL.GetArticulos(a => a.Costo == costo);
+                    break;
             }
         }
         else
         {
             lista = ArticulosBLL.GetArticulos(a => true);
         }
+
+        Sumatoria();
+    }
+    public void Sumatoria()
+    {
+        total = 0;
+        foreach (var item in lista)
+        {
+            total += item.ValorInventario;
+        }
+
     }
 }
