@@ -21,31 +21,53 @@ namespace Parcial1_Ap2_Fermin.BLL.Tests
         [TestMethod()]
         public void ModificarTest()
         {
-            Assert.Fail();
+            Articulos articulos = ArticulosBLL.Buscar(3);
+            articulos.Descripcion = "Uvas Moradas";
+            bool modificado = ArticulosBLL.Modificar(articulos);
+
+            Assert.AreEqual(true, modificado);
         }
 
         [TestMethod()]
         public void GuardarTest()
         {
-            Assert.Fail();
+            Articulos articulos = new Articulos();
+
+            articulos.ArticuloId = 1;
+            articulos.Descripcion = "Manzanas";
+            articulos.Costo = 30;
+            articulos.Existencia = 4;
+            articulos.ValorInventario = 120;
+
+            bool guardo = ArticulosBLL.Guardar(articulos);
+
+            Assert.AreEqual(guardo, true);
         }
 
         [TestMethod()]
         public void BuscarTest()
         {
-            Assert.Fail();
+            Articulos encontrado = ArticulosBLL.Buscar(1);
+
+            Assert.IsNotNull(encontrado);
         }
 
         [TestMethod()]
         public void EliminarTest()
         {
-            Assert.Fail();
+            bool eliminado = ArticulosBLL.Eliminar(4);
+
+            Assert.AreEqual(eliminado, true);
         }
 
         [TestMethod()]
         public void GetArticulosTest()
         {
-            Assert.Fail();
+            List<Articulos> lista = new List<Articulos>();
+
+            lista = ArticulosBLL.GetArticulos(a => true);
+
+            Assert.IsNotNull(lista);
         }
     }
 }
