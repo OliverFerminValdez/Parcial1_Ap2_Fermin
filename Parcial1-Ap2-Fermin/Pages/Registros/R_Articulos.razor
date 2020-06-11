@@ -4,12 +4,11 @@
 @using Models
 @using BLL
 @inject IToastService toast
-<h4>Registro de Articulos</h4>
 <EditForm Model="Articulos" OnValidSubmit="Guardar">
     <DataAnnotationsValidator />
     <div class="card">
-        <div class="card-header">
-            <h3>Registro de articulos</h3>
+        <div class="card-header" style="background-color:skyblue">
+            <h3><strong>Registro de articulos</strong></h3>
         </div>
         <div class="card-body">
             <form>
@@ -17,7 +16,7 @@
                 <div class="form-row align-items-center">
                     <div class="col">
                         <div class="form-group">
-                            <label>Articulo Id</label>
+                            <label><strong>Articulo Id</strong></label>
                             <div class="input-group">
                                 <InputNumber @bind-Value="Articulos.ArticuloId" class="form-control col-4" />
                                 <div class="input-group-append">
@@ -29,32 +28,32 @@
                 </div>
                 @*Descripcion*@
                 <div class="form-group">
-                    <label>Descripcion</label>
+                    <label><strong>Descripcion</strong></label>
                     <InputText @bind-Value="Articulos.Descripcion" class="form-control" />
                     <ValidationMessage For="@(() => Articulos.Descripcion)" />
                 </div>
                 @*Existencia*@
                 <div class="form-group">
-                    <label>Existencia</label>
+                    <label><strong>Existencia</strong></label>
                     <InputNumber @bind-Value="Articulos.Existencia" class="form-control" @onfocusout="CalcularValorInv" />
                     <ValidationMessage For="@(() => Articulos.Existencia)" />
                 </div>
                 @*Costo*@
                 <div class="form-group">
-                    <label>Costo</label>
+                    <label><strong>Costo</strong></label>
                     <InputNumber @bind-Value="Articulos.Costo" class="form-control" @onfocusout="CalcularValorInv" />
                     <ValidationMessage For="@(() => Articulos.Costo)" />
                 </div>
                 @*Valor inventario*@
                 <div class="form-group">
-                    <label>Descripcion</label>
+                    <label><strong>Descripcion</strong></label>
                     <InputNumber @bind-Value="Articulos.ValorInventario" class="form-control" @onfocusin="CalcularValorInv" />
                     <ValidationMessage For="@(() => Articulos.ValorInventario)" />
                 </div>
             </form>
         </div>
 
-        <div class="card-footer">
+        <div class="card-footer" style="background-color:skyblue">
             <div class="form-group text-center" display: Inline-block>
                 <button type="button" class="btn btn-lg btn-primary" @onclick="Nuevo">Nuevo</button>
                 <button type="submit" class="btn btn-lg btn-success">Guardar</button>
