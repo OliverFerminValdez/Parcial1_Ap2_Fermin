@@ -8,8 +8,8 @@ using Parcial1_Ap2_Fermin.DAL;
 namespace Parcial1_Ap2_Fermin.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200611004215_Migracion Inicial")]
-    partial class MigracionInicial
+    [Migration("20200615153108_Migracion inicial")]
+    partial class Migracioninicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

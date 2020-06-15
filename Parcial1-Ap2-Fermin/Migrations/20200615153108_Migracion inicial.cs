@@ -2,7 +2,7 @@
 
 namespace Parcial1_Ap2_Fermin.Migrations
 {
-    public partial class MigracionInicial : Migration
+    public partial class Migracioninicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

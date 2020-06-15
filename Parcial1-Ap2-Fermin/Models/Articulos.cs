@@ -12,9 +12,9 @@ namespace Parcial1_Ap2_Fermin.Models
         public int ArticuloId { get; set; }
         [Required(ErrorMessage ="Es obligatorio introducir la descripcion")]
         public string Descripcion { get; set; }
-        [Required(ErrorMessage ="Es obligatorio introducir la existencia")]
+        [Range(minimum:1, maximum:100000000,ErrorMessage ="El rango es de 1 a 100000000")]
         public double Existencia { get; set; }
-        [Required(ErrorMessage ="Es obligatorio Introducir el costo")]
+        [Range(minimum: 1, maximum: 100000000, ErrorMessage = "El rango es de 1 a 100000000")]
         public double Costo { get; set; }
         public double ValorInventario { get; set; }
 
