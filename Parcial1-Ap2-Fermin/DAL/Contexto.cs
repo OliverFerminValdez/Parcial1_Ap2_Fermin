@@ -13,7 +13,7 @@ namespace Parcial1_Ap2_Fermin.DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
-            dbContextOptionsBuilder.UseSqlite(@"Data Source = C:\Users\olive\Datos de proyectos\Articulos.db");
+            dbContextOptionsBuilder.UseSqlite(@"Data Source = DATA\Articulos.db");
         }
     }
 }
